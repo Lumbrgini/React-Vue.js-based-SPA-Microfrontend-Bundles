@@ -1,0 +1,26 @@
+{
+  "name": "vue_mf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "rspack serve --mode development --config ./rspack.config.cjs",
+    "build": "rspack build --mode production --config ./rspack.config.cjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "vue": "^3.5.24",
+    "vue-router": "^4.6.3"
+  },
+  "devDependencies": {
+    "@module-federation/enhanced": "^0.21.6",
+    "@rspack/cli": "^1.6.4",
+    "@rspack/core": "^1.6.4",
+    "@vue/compiler-sfc": "^3.5.24",
+    "vue-loader": "^17.4.2"
+  }
+}

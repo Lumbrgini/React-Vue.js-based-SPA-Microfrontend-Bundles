@@ -1,0 +1,94 @@
+.hotelCard {
+    width: 278px;
+    background: #ffffff;
+    border-radius: 18px;
+    border: 3px solid #0071c2;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.hotelCard:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+    border-color: #003580;
+}
+
+.hotelCard_imageWrapper {
+    padding: 10px;
+    padding-bottom: 0;
+}
+
+.hotelCard_imageWrapper img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.hotelCard_body {
+    padding: 14px 16px 18px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.hotelCard_name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #003580;
+    line-height: 1.3rem;
+}
+
+.hotelCard_location {
+    color: #555555;
+    font-size: 0.87rem;
+}
+
+.hotelCard_price {
+    margin-top: 6px;
+    font-size: 0.92rem;
+    color: #0071c2;
+    font-weight: 600;
+}
+
+.hotelCard_rating {
+    margin-top: 4px;
+    font-size: 0.88rem;
+    color: #333333;
+    font-weight: 600;
+}
+
+.hotelCard_rating::before {
+    content: "★ ";
+    color: #febb02;
+}
+
+.addFavBtn {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #003580;
+    background: #eaf4ff;
+    border: none;
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+    border-top: none;
+    /* чтобы не спорило с карточкой */
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.addFavBtn:hover {
+    background: #0071c2;
+    color: #ffffff;
+}
+
+.addFavBtn:active {
+    background: #005a99;
+}

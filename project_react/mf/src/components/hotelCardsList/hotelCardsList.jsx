@@ -8,8 +8,6 @@ import boutique from "../../pictures/boutique.png";
 import seehotel from "../../pictures/seehotel.png";
 import parkhotel from "../../pictures/parkhotel.png";
 
-
-
 const hotels = [
     {
         id: 1,

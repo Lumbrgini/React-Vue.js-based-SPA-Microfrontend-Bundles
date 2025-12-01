@@ -1,3 +1,20 @@
+import ModalSetter from "./components/modalWindow/embMW";
+
 export default function App2() {
-  return <div style={{padding:16, border:"1px solid #ccc"}}>Если ты это читаешь, значит хост и ремоут VTOROGO мф-а работают без упрёков</div>;
+
+  const events = localStorage.getItem("Events");
+  const parsed = JSON.parse(events);
+  console.log(parsed)
+  return (
+  <>
+    <div>
+      {parsed.map((event, i) => (
+        <div key={i}>
+          {event.eventName}/{event.eventDate}
+        </div>
+      ))}
+    </div>
+    <ModalSetter/>
+  </>
+  );  
 }

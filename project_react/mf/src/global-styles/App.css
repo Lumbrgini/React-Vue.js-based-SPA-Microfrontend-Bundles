@@ -2,7 +2,8 @@
     position: fixed;
     color: rgb(0, 0, 0);
     bottom: 20px;
-    left: 3vw;
+    left:40%;
+    right: 40%;
     z-index: 100;
     opacity: 0.6;
     transition: 0.2s ease-out;

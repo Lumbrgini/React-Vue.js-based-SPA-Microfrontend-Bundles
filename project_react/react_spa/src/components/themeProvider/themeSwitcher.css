@@ -1,0 +1,22 @@
+.themeSwitcher {
+    padding: 0.5vh 1vw;
+    border-radius: 10px;
+    border: 3px solid rgb(160, 160, 160);
+    background-color: var(--primary-text-color);
+    color: var(--background-color);
+    cursor: pointer;
+    font-size: 120%;
+
+    position: fixed;
+    left: 3vw;
+    bottom: 20px;
+    z-index: 100;
+    transition: 0.2s ease-out;
+}
+
+.themeSwitcher:hover {
+    transition: 0.2s ease-in;
+    background-color: rgb(136, 136, 136);
+    border-color: rgb(78, 78, 78);
+    font-size: 125%;
+}

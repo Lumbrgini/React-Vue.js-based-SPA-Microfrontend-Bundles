@@ -1,14 +1,9 @@
 import React, {useState} from "react";
 import "./hotelCard.css";
 
-export function HotelCard({name, image, location, price, rating, onAddFavorite}) {
+export function HotelCard({name, image, location, price, rating, isFavorite, onAddFavorite}) {
 
     const [text, setText] = useState(false);
-    
-    const toggleText = () =>{
-        const newText = text === false? true : false;
-        setText(newText);
-    }
     
     return (
         <article className="hotelCard">
@@ -23,10 +18,9 @@ export function HotelCard({name, image, location, price, rating, onAddFavorite})
             </div>
 
             <button onClick={() => {
-                onAddFavorite(name);
-                toggleText();
+                onAddFavorite(location);
             }} className="addFavBtn">
-                {text === true? 'Remove from ': 'Add to '} Favorites
+                {isFavorite? 'Remove from ': 'Add to '} Favorites
             </button>
         </article>
     )

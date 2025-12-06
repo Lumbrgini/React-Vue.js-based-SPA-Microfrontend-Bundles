@@ -1,10 +1,13 @@
 import React from "react";
 import ModalWindow from "./modalWindow";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import './modalWindow.css'
 
 const ModalSetter = () =>{
+    let numberOfLocations = useRef(0);
     const [open, setOpen] = useState(false);
+    const cities = localStorage.getItem("Hotels");
+    const parsed = JSON.parse(cities);
 
     const handleClose = () =>{
         setOpen(false);
@@ -17,13 +20,22 @@ const ModalSetter = () =>{
     return(
         <div className="container">
             <button onClick={handleOpen}>
-                Open Modal
+                Locations
             </button>
             <ModalWindow isOpen={open} onClose={handleClose}>
+                {parsed.length == 0? <div>Choose your favorite locations to see the events nearby!</div>: 
+                <>
+                <p>Chosen locations ({numberOfLocations.current = parsed.length}): </p>
                 
-                    <h1>GFG</h1>
-                    <h3>A computer science portal!</h3>
-            
+                <div>
+                    {parsed.map((loc, i) => (
+                        <div key={i}>
+                            {loc}
+                        </div>
+                    ))}
+                </div>
+                </>
+                } 
             </ModalWindow>
         </div>
     )

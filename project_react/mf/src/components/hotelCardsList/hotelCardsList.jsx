@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { HotelCard } from "./hotelCard";
 import "./hotelCardList.css"
 import inns from "../../pictures/inns.png";
@@ -101,6 +101,7 @@ const hotels = [
 ]
 
 export function HotelCardList(){
+    
     const [eventLocation, setEventLocation] = useState([])
     const [favorites, setFavorites] = useState(() =>{
         const stored = localStorage.getItem("Hotels");
@@ -111,9 +112,11 @@ export function HotelCardList(){
         }
     });
     
+    
     const handleAddToFavorites = (location) => {
         setFavorites(prev => {
             let updatedFav;
+
             if (prev.includes(location)) {
                 updatedFav = prev.filter(item => item !== location);
             } else {
@@ -126,12 +129,9 @@ export function HotelCardList(){
                 .filter(hotel => updatedFav.includes(hotel.location))
                 .flatMap(hotel => hotel.events || []);
 
-            setEventLocation(events);
+            //setEventLocation(events);
 
             localStorage.setItem("Events", JSON.stringify(events));
-
-            console.log(updatedFav);
-            console.log(events);
 
             return updatedFav;
         });           

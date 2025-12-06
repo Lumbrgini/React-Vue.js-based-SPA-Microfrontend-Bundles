@@ -8,7 +8,8 @@ export default function App2() {
   return (
   <>
     <div>
-      {parsed.map((event, i) => (
+      {parsed.length == 0? <div>Choose your favorite locations to see the events nearby!</div>: 
+      parsed.map((event, i) => (
         <div key={i}>
           {event.eventName}/{event.eventDate}
         </div>

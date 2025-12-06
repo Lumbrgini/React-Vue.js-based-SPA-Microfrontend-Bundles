@@ -2,8 +2,6 @@ import React, {useState} from "react";
 import "./hotelCard.css";
 
 export function HotelCard({name, image, location, price, rating, isFavorite, onAddFavorite}) {
-
-    const [text, setText] = useState(false);
     
     return (
         <article className="hotelCard">
@@ -16,12 +14,14 @@ export function HotelCard({name, image, location, price, rating, isFavorite, onA
                 <p className="hotelCard_price">starts with {price}€</p>
                 <p className="hotelCard_rating">{rating} Stars</p>
             </div>
-
-            <button onClick={() => {
-                onAddFavorite(location);
-            }} className="addFavBtn">
-                {isFavorite? 'Remove from ': 'Add to '} Favorites
-            </button>
+            <div className="btnContainer">
+                <button onClick={() => {
+                    onAddFavorite(location);
+                }} className="addFavBtn">
+                    {isFavorite? 'Remove from ': 'Add to '} Favorites
+                </button>
+                <button className="bookBtn" >Book this option</button>
+            </div>
         </article>
     )
 }

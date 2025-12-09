@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { HotelCard } from "./hotelCard";
 import "./hotelCardList.css"
 import inns from "../../pictures/inns.png";
@@ -8,8 +8,6 @@ import boutique from "../../pictures/boutique.png";
 import seehotel from "../../pictures/seehotel.png";
 import parkhotel from "../../pictures/parkhotel.png";
 
-
-
 const hotels = [
     {
         id: 1,
@@ -17,7 +15,17 @@ const hotels = [
         image: inns,
         location: "4161 Ulrichsberg",
         price: 130,
-        rating: 4.9
+        rating: 4.9,
+        events: [
+            {
+                eventName: "Bierfest",
+                eventDate: "26.07.2026"
+            },
+            {
+                eventName: "Mensafest",
+                eventDate: "29.07.2026"
+            }
+        ]
     }, 
     {
         id: 2,
@@ -25,7 +33,13 @@ const hotels = [
         image: falken,
         location: "4190 Bad Leonfelden",
         price: 170,
-        rating: 4.4
+        rating: 4.4,
+       events: [
+            {
+                eventName: "Ofest",
+                eventDate: "20.07.2026"
+            }
+        ]
     },
     {
         id: 3,
@@ -33,7 +47,13 @@ const hotels = [
         image: worldhotel,
         location: "4020 Linz",
         price: 73,
-        rating: 4.0
+        rating: 4.0,
+        events: [
+            {
+                eventName: "Ofest",
+                eventDate: "20.07.2026"
+            }
+        ]
     },
     {
         id: 4,
@@ -41,7 +61,13 @@ const hotels = [
         image: boutique,
         location: "4600 Wels",
         price: 111,
-        rating: 4.7
+        rating: 4.7,
+        events: [
+            {
+                eventName: "Ofest",
+                eventDate: "20.07.2026"
+            }
+        ]
     },
     {
         id: 5,
@@ -49,7 +75,13 @@ const hotels = [
         image: seehotel,
         location: "4810 Gmunden",
         price: 142,
-        rating: 4.9
+        rating: 4.9,
+        events: [
+            {
+                eventName: "Ofest",
+                eventDate: "20.07.2026"
+            }
+        ]
     },
     {
         id: 6,
@@ -57,26 +89,54 @@ const hotels = [
         image: parkhotel,
         location: "5280 Branau am Inn",
         price: 80,
-        rating: 4.0
+        rating: 4.0,
+        events: [
+            {
+                eventName: "Ofest",
+                eventDate: "20.07.2026"
+            }
+        ]
     }
 
 ]
 
 export function HotelCardList(){
-
-    const [favorites, setFavorites] = useState([]);
-
-    const handleAddToFavorites = (name) => {
+    
+    const [eventLocation, setEventLocation] = useState([])
+    const [favorites, setFavorites] = useState(() =>{
+        const stored = localStorage.getItem("Hotels");
+        try{
+            return stored ? JSON.parse(stored): [];
+        } catch{
+            return [];
+        }
+    });
+    
+    
+    const handleAddToFavorites = (location) => {
         setFavorites(prev => {
-            if (prev.includes(name)) {
-                return prev.filter(item => item !== name);
+            let updatedFav;
+
+            if (prev.includes(location)) {
+                updatedFav = prev.filter(item => item !== location);
             } else {
-                return [...prev, name];
+                updatedFav = [...prev, location];
             }
-        });
-                
-        };
-    console.log(favorites.join(","));
+
+            localStorage.setItem("Hotels", JSON.stringify(updatedFav));
+
+            const events = hotels
+                .filter(hotel => updatedFav.includes(hotel.location))
+                .flatMap(hotel => hotel.events || []);
+
+            //setEventLocation(events);
+
+            localStorage.setItem("Events", JSON.stringify(events));
+
+            return updatedFav;
+        });           
+    };
+
     return (
         <div className="hotelCardList">
             {hotels.map((hotel) => (
@@ -87,6 +147,7 @@ export function HotelCardList(){
                 location={hotel.location}
                 price={hotel.price}
                 rating={hotel.rating}
+                isFavorite={favorites.includes(hotel.location)}
                 onAddFavorite={handleAddToFavorites} 
                 />
             ))}

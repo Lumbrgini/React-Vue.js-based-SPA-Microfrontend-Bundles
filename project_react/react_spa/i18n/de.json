@@ -1,0 +1,15 @@
+{
+    "about": 
+    {
+        "p-title":"Herzlich Willkomen zu unserem Portal!",
+        "card1-title": "Über das Portal",
+        "card2-title": "Entdecken Sie Oberösterreich",
+        "card3-title": "Unsere Services",
+        "card4-title": "Weitere Informationen",
+
+        "p-about":"Explore Upper Austria ist eine kompakte Informationsplattform, die Besucherinnen und Besuchern einen klaren und strukturierten Überblick über die Vielfalt und Schönheit Oberösterreichs bietet. Unser Ziel ist es, verlässliche und übersichtliche Informationen bereitzustellen, die Ihnen helfen, die Region besser kennenzulernen und Ihre Reiseplanung zu erleichtern.",
+        "p-discover":"Oberösterreich vereint ruhige Seenlandschaften, beeindruckende Bergkulissen und kulturell bedeutende Städte. Ob Wanderwege im Salzkammergut, historische Gassen in Linz oder entspannte Ausblicke am Traunsee – unser Ziel ist es, Ihnen die wichtigsten Facetten dieser Region strukturiert und übersichtlich näherzubringen.",
+        "p-services":"Auf Explore Upper Austria stellen wir Ihnen zwei zentrale Servicebereiche zur Verfügung: Über unsere Unterkunftssektion können Sie passende Übernachtungsmöglichkeiten entdecken und direkt buchen. Zusätzlich finden Sie in unserem Veranstaltungsteil eine Auswahl an aktuellen Events und Aktivitäten, die in den beliebtesten Städten Oberösterreichs stattfinden.",
+        "p-extra": "In der Contact-Sektion finden Sie zudem wichtige Anlaufstellen wie offizielle Tourismusorganisationen, Notrufnummern sowie weitere hilfreiche Kontaktdaten, die für Ihren Aufenthalt relevant sein können."
+    }
+}

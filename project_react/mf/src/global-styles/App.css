@@ -12,10 +12,14 @@
 .creator:hover{
     transition: 0.2s ease-in;
     font-size: 110%;
-
 }
 
-.appBody{
+.app1Body{
     background-color: #b5e0ff;
+    min-height: 100vh
+}
+
+.app2Body{
+    background-color: #ffe678;
     min-height: 100vh
 }

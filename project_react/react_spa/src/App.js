@@ -4,6 +4,7 @@ import Contact from './pages/Contact';
 
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { RequestForm } from '../../mf/src/components/requestBookingForm/requestForm';
 
 const MF1 = React.lazy(() => import("mfe/App"));
 const MF2 = React.lazy(() => import("mfe/App2"));
@@ -29,6 +30,7 @@ function App() {
             <Route path="/" element={<About/>}/>
             <Route path="/photos" element={<Photos/>}/>
             <Route path="/contact" element={<Contact/>}/>
+            <Route path='/request-booking' element={<RequestForm/>}/>
             <Route path="/mf1/*" element={<MF1/>}/>
             <Route path="/mf2/*" element={<MF2/>}/>
           </Routes>

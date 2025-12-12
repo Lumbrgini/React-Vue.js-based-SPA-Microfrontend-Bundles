@@ -1,7 +1,10 @@
 import React, {useState} from "react";
+import {useNavigate} from "react-router";
 import "./hotelCard.css";
 
 export function HotelCard({name, image, location, price, rating, isFavorite, onAddFavorite}) {
+
+    //const navigate = useNavigate();
     
     return (
         <article className="hotelCard">
@@ -20,7 +23,10 @@ export function HotelCard({name, image, location, price, rating, isFavorite, onA
                 }} className="addFavBtn">
                     {isFavorite? 'Remove from ': 'Add to '} Favorites
                 </button>
-                <button className="bookBtn" >Book this option</button>
+                <button
+                onClick={() => {
+                    //navigate('/request-booking');
+                }} className="bookBtn">Book this option</button>
             </div>
         </article>
     )

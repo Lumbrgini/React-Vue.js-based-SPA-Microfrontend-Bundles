@@ -1,0 +1,12 @@
+.eventCardList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 0 3vw;
+    padding-top: 3vh
+}
+
+.recommendation{
+    margin: auto;
+    font-size: larger;
+}

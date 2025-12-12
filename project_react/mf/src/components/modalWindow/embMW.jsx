@@ -19,13 +19,13 @@ const ModalSetter = () =>{
 
     return(
         <div className="container">
-            <button onClick={handleOpen}>
+            <button className = "modalBtn" onClick={handleOpen}>
                 Locations
             </button>
             <ModalWindow isOpen={open} onClose={handleClose}>
                 {parsed.length == 0? <div>Choose your favorite locations to see the events nearby!</div>: 
                 <>
-                <p>Chosen locations ({numberOfLocations.current = parsed.length}): </p>
+                <p>Favorite locations ({numberOfLocations.current = parsed.length}): </p>
                 
                 <div>
                     {parsed.map((loc, i) => (

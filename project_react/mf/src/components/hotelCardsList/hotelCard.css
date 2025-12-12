@@ -83,7 +83,7 @@
     border-radius: 10px;
     cursor: pointer;
     transition: background 0.2s ease, color 0.2s ease;
-    margin-right: 0.4vw;
+    margin-right: 0.3vw;
 }
 
 .bookBtn{
@@ -97,7 +97,7 @@
     border-radius: 10px;
     cursor: pointer;
     transition: background 0.2s ease, color 0.2s ease;
-    margin-left: 0.4vw;
+    margin-left: 0.3vw;
 }
 
 .addFavBtn:hover {

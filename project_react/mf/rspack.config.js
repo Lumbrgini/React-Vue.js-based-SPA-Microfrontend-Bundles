@@ -1,12 +1,12 @@
 const { defineConfig } = require("@rspack/cli");
 const rspack = require("@rspack/core");
-const { ModuleFederationPlugin } = require("@module-federation/enhanced/rspack"); // если используешь enhanced
+const { ModuleFederationPlugin } = require("@module-federation/enhanced/rspack"); 
 
 const isDev = process.env.NODE_ENV === "development";
 const RefreshPlugin = require("@rspack/plugin-react-refresh");
 
 module.exports = defineConfig({
-  entry: "./src/bootstrap.jsx",                 // ⬅️ bootstrap.jsx, не index.js
+  entry: "./src/bootstrap.jsx",             
   devServer: {
     port: 3001,
     headers: {
@@ -19,7 +19,6 @@ module.exports = defineConfig({
   output: { publicPath: "http://localhost:3001/", uniqueName: "mfe" },
 
   resolve: {
-    // ⬅️ ОБЯЗАТЕЛЬНО добавить ".jsx" (и можно .tsx, если надо)
     extensions: ["...", ".js", ".jsx", ".ts", ".tsx"],
   },
 
@@ -31,17 +30,16 @@ module.exports = defineConfig({
           "style-loader",
           "css-loader"
         ],
-        type: "javascript/auto", // важно для style-loader
+        type: "javascript/auto", 
       },
       {
-        test: /\.(js|jsx|ts|tsx)$/,            // ⬅️ поддержка JSX/TS
+        test: /\.(js|jsx|ts|tsx)$/,       
         use: [
           {
             loader: "builtin:swc-loader",
             options: {
               jsc: {
                 parser: {
-                  // Разрешаем JSX и TSX в любых расширениях из test
                   syntax: "typescript",
                   tsx: true,
                   jsx: true,
@@ -56,7 +54,7 @@ module.exports = defineConfig({
       },
       {
         test: /\.(png|jpg|jpeg|gif|svg)$/i,
-        type: "asset/resource",  // или "asset" — см. ниже
+        type: "asset/resource",  
       },
     ],
   },

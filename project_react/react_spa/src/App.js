@@ -30,7 +30,6 @@ function App() {
             <Route path="/" element={<About/>}/>
             <Route path="/photos" element={<Photos/>}/>
             <Route path="/contact" element={<Contact/>}/>
-            <Route path='/request-booking' element={<RequestForm/>}/>
             <Route path="/mf1/*" element={<MF1/>}/>
             <Route path="/mf2/*" element={<MF2/>}/>
           </Routes>

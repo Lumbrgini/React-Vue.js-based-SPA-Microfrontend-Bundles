@@ -1,12 +1,12 @@
 import React, { useRef, useState } from "react";
 import { HotelCard } from "./hotelCard";
 import "./hotelCardList.css"
-import inns from "../../pictures/inns.png";
-import falken from "../../pictures/falken.png";
-import worldhotel from "../../pictures/worldhotel.png";
-import boutique from "../../pictures/boutique.png";
-import seehotel from "../../pictures/seehotel.png";
-import parkhotel from "../../pictures/parkhotel.png";
+import inns from "../../pictures/inns.jpg";
+import falken from "../../pictures/falken.jpg";
+import worldhotel from "../../pictures/worldhotel.jpg";
+import boutique from "../../pictures/boutique.jpg";
+import seehotel from "../../pictures/seehotel.jpg";
+import parkhotel from "../../pictures/parkhotel.jpg";
 
 const hotels = [
     {

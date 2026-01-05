@@ -3,7 +3,7 @@ import {useNavigate} from "react-router";
 import "./hotelCard.css";
 import ModalWindow from "../modalWindow/modalWindow";
 
-import { useToast } from "../toastComponent/toastWindow";
+import { useToast } from "../toastComponent/useToast";
 import Toast from "../toastComponent/Toast";
 
 export function HotelCard({name, image, location, price, rating, isFavorite, onAddFavorite}) {

@@ -7,7 +7,7 @@ const About = () => {
 
   return (
     <div className="about-page">
-      <h2 className="about-title">{t('about.p-title')}</h2>
+      <h1 className="about-title">{t('about.p-title')}</h1>
 
       <div className="about-grid">
 

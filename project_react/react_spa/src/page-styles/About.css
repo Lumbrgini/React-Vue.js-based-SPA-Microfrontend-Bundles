@@ -1,11 +1,10 @@
 .about-page {
-    padding: 40px 30px;
+    padding: 12vh 5vw;
 }
 
 .about-title {
     text-align: center;
-    color: #cc0f0f;
-    font-size: 3rem;
+    color: var(--primary-title-color);
     font-weight: 800;
     margin-bottom: 40px;
 }

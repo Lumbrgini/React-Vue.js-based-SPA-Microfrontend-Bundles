@@ -1,5 +1,6 @@
 {
-    "about": {
+    "about":
+    {
     "p-title": "Welcome to our portal!",
     "card1-title": "About the Portal",
     "card2-title": "Discover Upper Austria",
@@ -10,5 +11,11 @@
     "p-discover": "Upper Austria combines tranquil lakes, impressive mountain scenery and culturally rich cities. Whether it’s hiking routes in the Salzkammergut, historic streets in Linz, or relaxing views over Lake Traunsee – our aim is to present the most important aspects of the region in a simple and accessible way.",
     "p-services": "Explore Upper Austria offers two key service areas: In the accommodation section, you can find suitable lodging options and book them directly. In addition, our events section provides an overview of current activities and happenings taking place in Upper Austria’s most popular destinations.",
     "p-extra": "In the Contact section, you will find essential contact points such as official tourism organizations, emergency services, and other helpful information relevant to your stay."
+    },
+
+    "photos":
+    {
+        "title": "Photo Gallery", 
+        "description": "From charming city streets and architectural landmarks to wide green landscapes and mountain panoramas - this gallery captures Upper Austria the way travelers love it: bright, lively, and wonderfully diverse."
     }
 }

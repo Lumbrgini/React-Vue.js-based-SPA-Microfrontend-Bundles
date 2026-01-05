@@ -15,6 +15,7 @@ import "./eventCardList.css"
 const events = [
     {
         id: 1,
+        city: 1,
         name: "Krampuslauf Event",
         image: krampus,
         date: '13.12.2025',
@@ -22,7 +23,8 @@ const events = [
         price: 5
     },
     {
-        id: 1,
+        id: 2,
+        city: 1,
         name: "Christmas Show",
         image: ausstellung,
         date: '15.12.2025',
@@ -30,7 +32,8 @@ const events = [
         price: 0
     },
     {
-        id: 2,
+        id: 3,
+        city: 2,
         name: "Christmas Market",
         image: weihnachtsmarkt,
         date: '23.12.2025',
@@ -38,7 +41,8 @@ const events = [
         price: 0
     },
     {
-        id: 3,
+        id: 4,
+        city: 3,
         name: "Techno in the Oldtown",
         image: techno,
         date: '21.12.2025',
@@ -46,7 +50,8 @@ const events = [
         price: 15
     },
     {
-        id: 3,
+        id: 5,
+        city: 3,
         name: "Ars Electronica Center Tour",
         image: tech,
         date: '22.12.2025',
@@ -54,7 +59,8 @@ const events = [
         price: 10
     },
     {
-        id: 4,
+        id: 6,
+        city: 4,
         name: "Beer Garden Advent",
         image: gluh,
         date: '19.12.2025',
@@ -62,7 +68,8 @@ const events = [
         price: 0
     },
     {
-        id: 4,
+        id: 7,
+        city: 4,
         name: "City Museum Tour",
         image: museum,
         date: '22.12.2025',
@@ -70,7 +77,8 @@ const events = [
         price: 15
     },
     {
-        id: 5,
+        id: 8,
+        city: 5,
         name: "Schwanthaler Gallery Tour",
         image: gallery,
         date: '20.12.2025',
@@ -78,7 +86,8 @@ const events = [
         price: 20
     },
     {
-        id: 5,
+        id: 9,
+        city: 5,
         name: "Christmas Market",
         image: markt,
         date: '22.12.2025',
@@ -86,7 +95,8 @@ const events = [
         price: 0
     },
     {
-        id: 6,
+        id: 10,
+        city: 6,
         name: "KTM Motohall Tour",
         image: ktm,
         date: '21.12.2025',
@@ -105,11 +115,9 @@ export function EventsCardList() {
         const ids = idsRaw ? JSON.parse(idsRaw) : [];
 
         const matchingEvents = events
-            .filter(event => ids.includes(event.id));  
+            .filter(event => ids.includes(event.city));  
 
         setShowEvents(matchingEvents);
-
-        console.log(showEvents);
     }, [events]);
     
     return (

@@ -12,10 +12,17 @@
         "p-services":"Auf Explore Upper Austria stellen wir Ihnen zwei zentrale Servicebereiche zur Verfügung: Über unsere Unterkunftssektion können Sie passende Übernachtungsmöglichkeiten entdecken und direkt buchen. Zusätzlich finden Sie in unserem Veranstaltungsteil eine Auswahl an aktuellen Events und Aktivitäten, die in den beliebtesten Städten Oberösterreichs stattfinden.",
         "p-extra": "In der Contact-Sektion finden Sie zudem wichtige Anlaufstellen wie offizielle Tourismusorganisationen, Notrufnummern sowie weitere hilfreiche Kontaktdaten, die für Ihren Aufenthalt relevant sein können."
     },
+
     "photos":
     {
         "title": "Fotogalerie", 
         "description": "Von charmanten Altstadtgassen und architektonischen Wahrzeichen bis hin zu weiten grünen Landschaften und Bergpanoramen – diese Galerie zeigt Oberösterreich so, wie Reisende es lieben: hell, lebendig und beeindruckend vielfältig."
+    },
+    
+    "contact":
+    {
+        "title": "Kontakt",
+        "description": "Wichtige Kontakte für Ihre Reise in Oberösterreich - Tourismus-Infos, Notdienste, Gesundheit und Pannenhilfe."
     }
 
 

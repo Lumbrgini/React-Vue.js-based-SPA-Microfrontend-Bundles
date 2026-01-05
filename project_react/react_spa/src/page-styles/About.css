@@ -29,7 +29,7 @@
 .about-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
-    border-color: #e4e4e4;
+    border-color: white;
 }
 
 .about-card h3 {
@@ -37,7 +37,7 @@
     margin-bottom: 14px;
     font-size: 1.55rem;
     font-weight: 700;
-    color: #cc0f0f;
+    color: var(--primary-title-color);
 }
 
 .about-card p {

@@ -51,22 +51,22 @@ const Contact = () => {
           <h3>Emergency numbers (Austria)</h3>
           <ul className="contact-list">
             <li>
-              <strong>112</strong> — European emergency number
+              <strong><a href="tel:112">112</a></strong> — European emergency number
             </li>
             <li>
-              <strong>122</strong> — Fire brigade
+              <strong><a href="tel:122">122</a></strong> — Fire brigade
             </li>
             <li>
-              <strong>133</strong> — Police department
+              <strong><a href="tel:133">133</a></strong> — Police department
             </li>
             <li>
-              <strong>140</strong> — Mountain rescue
+              <strong><a href="tel:140">140</a></strong> — Mountain rescue
             </li>
             <li>
-              <strong>141</strong> — Medical on-call service
+              <strong><a href="tel:141">141</a></strong> — Medical on-call service
             </li>
             <li>
-              <strong>144</strong> — Ambulance / Rescue
+              <strong><a href="tel:144">144</a></strong> — Ambulance / Rescue
             </li>
           </ul>
         </div>
@@ -75,13 +75,13 @@ const Contact = () => {
           <h3>Health &amp; pharmacy</h3>
           <ul className="contact-list">
             <li>
-              <strong>1450</strong> — Health advice hotline (24/7)
+              <strong><a href="tel:1450">1450</a></strong> — Health advice hotline (24/7)
             </li>
             <li>
-              <strong>1455</strong> — Pharmacy on-call service
+              <strong><a href="tel:1455">1455</a></strong> — Pharmacy on-call service
             </li>
             <li>
-              <strong>+43 1 406 43 43</strong> — Poison control
+              <strong><a href="tel:+4314064343">+43 1 406 43 43</a></strong> — Poison control
             </li>
           </ul>
         </div>
@@ -90,10 +90,10 @@ const Contact = () => {
           <h3>Roadside assistance</h3>
           <ul className="contact-list">
             <li>
-              <strong>120</strong> — ÖAMTC roadside assistance
+              <strong><a href="tel:120">120</a></strong> — ÖAMTC roadside assistance
             </li>
             <li>
-              <strong>123</strong> — ARBÖ roadside assistance
+              <strong><a href="tel:123">123</a></strong> — ARBÖ roadside assistance
             </li>
           </ul>
         </div>

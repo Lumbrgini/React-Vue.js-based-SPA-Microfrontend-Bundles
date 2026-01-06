@@ -15,7 +15,7 @@ export function HotelCard({name, image, location, price, rating, isFavorite, onA
         name: "",
         famName: "",
         nationality: "",
-        arrDate: String(today),
+        arrDate: "",
         depDate: "",
         email: "",
     });
@@ -30,8 +30,13 @@ export function HotelCard({name, image, location, price, rating, isFavorite, onA
         setOpen(true);
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();   
+        if (!e.currentTarget.reportValidity()) return;
+
         showToast("Your request have been successfully sent!");
+        handleClose();
+        setForm("");
     }
 
     const handleChange = (e) => {
@@ -70,19 +75,29 @@ export function HotelCard({name, image, location, price, rating, isFavorite, onA
                         <h2>Booking request</h2>
                         <div className="modalChosenLocation">
                             <p>{name}</p>
-                            <p>{location}</p>
+                            <p>{location}</p><br/>
+                            <div className="inputOverview">
+                                {(form.name?.trim() || form.famName?.trim()) && (
+                                    <p>For: <em>{form.name} {form.famName}</em></p>
+                                )}
+                                {form.email?.trim() && (
+                                    <p>E-Mail: <em>{form.email}</em></p>
+                                )}
+                                {form.nationality?.trim() && (
+                                    <p>From: <em>{form.nationality}</em></p>
+                                )}
+                                {(form.arrDate?.trim() && form.depDate?.trim()) && (
+                                    <>
+                                        <p>From: <em>{form.arrDate}</em></p>
+                                        <p>Till: <em>{form.depDate}</em></p>
+                                    </>
+                                )}
+                            </div>
                         </div>
                     </div>
-                    <div className="inputOverview">
-                        <p>{form.name}</p>
-                        <p>{form.famName}</p>
-                        <p>{form.email}</p>
-                        <p>{form.nationality}</p>
-                        <p>{form.arrDate}</p>
-                        <p>{form.depDate}</p>
-                    </div>
+                    
      
-                    <form className="modalForm">
+                    <form className="modalForm" onSubmit={handleSubmit}>
                         <div className="field">
                             <label htmlFor="name">Name</label>
                             <input 
@@ -110,12 +125,14 @@ export function HotelCard({name, image, location, price, rating, isFavorite, onA
                                 id="email" 
                                 name="email" 
                                 value={form.email} 
-                                onChange={handleChange} 
+                                onChange={handleChange}
+                                pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+                                required 
                             />
                         </div>
      
                         <div className="field">
-                            <label htmlFor="nationality">Nationality</label>
+                            <label htmlFor="nationality">Country</label>
                             <input 
                                 id="nationality" 
                                 name="nationality" 
@@ -159,11 +176,8 @@ export function HotelCard({name, image, location, price, rating, isFavorite, onA
                                 onClick={handleClose}>Cancel</button>
                             <button 
                                 className="btnPrimary" 
-                                type="button"
-                                onClick={() => {
-                                    handleSubmit();
-                                    handleClose();
-                                }}>Send Request</button>
+                                type="submit"
+                                >Send Request</button>
                         </div>
                     </form>
                     </div>

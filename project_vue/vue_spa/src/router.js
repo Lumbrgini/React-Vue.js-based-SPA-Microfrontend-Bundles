@@ -1,9 +1,8 @@
 import { createWebHistory, createRouter } from 'vue-router'
 
-import About from './About.vue';
-import Contact from './Contact.vue';
-import Home from './Home.vue';
-import Photos from './Photos.vue';
+const About = () => import('./pages/About.vue')
+const Photos = () => import('./pages/Photos.vue')
+const Contact = () => import('./pages/Contact.vue')
 
 
 const MF1 = () =>
@@ -13,8 +12,7 @@ const MF2 = () =>
   import("vue_mfe/MF2").then(m => m.default || m);
 
 const routes = [
-  { path: '/', component: Home },
-  { path: '/about', component: About },
+  { path: '/', component: About },
   { path: '/contact', component: Contact },
   { path: '/photos', component: Photos },
   { path: "/mf1", component: MF1 },

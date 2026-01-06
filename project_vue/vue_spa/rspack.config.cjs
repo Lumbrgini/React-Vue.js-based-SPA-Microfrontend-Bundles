@@ -57,6 +57,10 @@ module.exports = defineConfig({
         test: /\.css$/,
         type: "css",
       },
+      {
+        test: /\.(png|jpg|jpeg|gif|svg)$/i,
+        type: "asset/resource",  
+      },
     ],
   },
 
@@ -66,7 +70,6 @@ module.exports = defineConfig({
       template: "./index.html",
     }),
 
-    // ⬇️ Самое важное — подключаем remote vue_mfe
     new ModuleFederationPlugin({
       name: "vue_host",
       remotes: {

@@ -70,10 +70,10 @@ module.exports = defineConfig({
   plugins: [
     new VueLoaderPlugin(),
     new rspack.HtmlRspackPlugin({
-      template: "./index.html",
+      template: "./index.html"
     }),
     new ModuleFederationPlugin(moduleFederationConfig),
-    
+
     new rspack.DefinePlugin({
       __VUE_OPTIONS_API__: JSON.stringify(true),
       __VUE_PROD_DEVTOOLS__: JSON.stringify(false),

@@ -1,4 +1,3 @@
-// rspack.config.cjs
 const path = require("path");
 const { defineConfig } = require("@rspack/cli");
 const rspack = require("@rspack/core");
@@ -16,7 +15,7 @@ module.exports = defineConfig({
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "main.js",
-    publicPath: "http://localhost:4175/", 
+    publicPath: "http://localhost:4175/", // Remote
     uniqueName: "vue_mfe",
     clean: true,
   },
@@ -57,10 +56,13 @@ module.exports = defineConfig({
            },
         },
       },
-      // CSS (если нужно)
       {
         test: /\.css$/,
         type: "css",
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif|svg)$/i,
+        type: "asset/resource",  
       },
     ],
   },
@@ -71,6 +73,12 @@ module.exports = defineConfig({
       template: "./index.html",
     }),
     new ModuleFederationPlugin(moduleFederationConfig),
+    
+    new rspack.DefinePlugin({
+      __VUE_OPTIONS_API__: JSON.stringify(true),
+      __VUE_PROD_DEVTOOLS__: JSON.stringify(false),
+      __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: JSON.stringify(false),
+    }),
   ],
 
   experiments: {

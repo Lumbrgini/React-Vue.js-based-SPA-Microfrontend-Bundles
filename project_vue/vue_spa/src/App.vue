@@ -1,5 +1,6 @@
 <template>
   <div class="shell">
+    <switchLangBtn />
     <nav class="navBody">
       <h1 class="title">Explore Upper Austria</h1>
 
@@ -30,8 +31,12 @@
 
 <script>
 import { RouterLink, RouterView } from 'vue-router'
+import switchLangBtn from '../components/switchLangBtn/switchLangBtn.vue';
 
 export default {
   name: "App",
+  components: {
+    switchLangBtn
+  }
 };
 </script>

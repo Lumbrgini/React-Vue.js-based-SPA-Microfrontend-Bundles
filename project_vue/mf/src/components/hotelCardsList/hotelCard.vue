@@ -1,32 +1,42 @@
 <template>
-    <>
-    <article className="hotelCard">
-        <div className="hotelCard_imageWrapper">
-            <img src={{image}} alt="Hotel image"></img>
+    <article class="hotelCard">
+        <div class="hotelCard_imageWrapper">
+            <img :src=image alt="Hotel image"></img>
         </div>
-        <div className="hotelCard_body">
-            <h3 className="hotelCard_name">{name}</h3>
-            <p className="hotelCard_location">{location}</p>
-            <p className="hotelCard_price">starts with {price}€</p>
-            <p className="hotelCard_rating">{rating} Stars</p>
+        <div class="hotelCard_body">
+            <h3 class="hotelCard_name">{{name}}</h3>
+            <p class="hotelCard_location">{{location}}</p>
+            <p class="hotelCard_price">starts with {{price}}€</p>
+            <p class="hotelCard_rating">{{rating}} Stars</p>
         </div>
-        <div className="btnContainer">
-            <button onClick={() => {
-                onAddFavorite(location);
-            }} className="addFavBtn">
-                {isFavorite? 'Remove from ': 'Add to '} Favorites
+
+        <div class="btnContainer">
+            <button @click="onAddFavorite" class="addFavBtn">
+                {{isFavorite? 'Remove from ': 'Add to '}} Favorites
             </button>
-            <button
-            onClick={handleOpen} className="bookBtn">Book this option</button>
+            <button class="bookBtn">Book this option</button>
             
         </div>
     </article>
 
 </template>
-<script>
-export default {
-    setup() {
-        const today = new Date().toISOString().slice(0,10);
-    },
-}
+<script setup>
+    import "./hotelCard.css";
+    const today = new Date().toISOString().slice(0,10);
+
+    const props = defineProps({
+        id: [String, Number],
+        name: String,
+        image: String,
+        location: String,
+        price: Number,
+        rating: Number,
+        isFavorite: Boolean
+    })
+
+    const emit = defineEmits(['add-favorite'])
+
+    function onAddFavorite(){
+        emit('add-favorite', props.location);
+    }
 </script>

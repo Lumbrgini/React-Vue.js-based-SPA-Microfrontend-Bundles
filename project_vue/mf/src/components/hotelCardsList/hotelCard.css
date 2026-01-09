@@ -1,0 +1,236 @@
+.hotelCard {
+    width: 278px;
+    background: #ffffff;
+    border-radius: 18px;
+    border: 3px solid #0071c2;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.hotelCard:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+    border-color: #003580;
+}
+
+.hotelCard_imageWrapper {
+    padding: 10px;
+    padding-bottom: 0;
+}
+
+.hotelCard_imageWrapper img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.hotelCard_body {
+    padding: 14px 16px 18px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.hotelCard_name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #003580;
+    line-height: 1.3rem;
+}
+
+.hotelCard_location {
+    color: #555555;
+    font-size: 0.87rem;
+}
+
+.hotelCard_price {
+    margin-top: 6px;
+    font-size: 0.92rem;
+    color: #0071c2;
+    font-weight: 600;
+}
+
+.hotelCard_rating {
+    margin-top: 4px;
+    font-size: 0.88rem;
+    color: #333333;
+    font-weight: 600;
+}
+
+.hotelCard_rating::before {
+    content: "★ ";
+    color: #febb02;
+}
+
+.btnContainer{
+    margin-bottom: 1vh;
+}
+
+.addFavBtn {
+    width: 45%;
+    padding: 10px 12px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #003580;
+    background: #bbdcff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+    margin-right: 0.3vw;
+}
+
+.bookBtn{
+    width: 45%;
+    padding: 10px 12px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #016422;
+    background: #a5fca5;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+    margin-left: 0.3vw;
+}
+
+.addFavBtn:hover {
+    background: #0071c2;
+    color: #ffffff;
+}
+
+.addFavBtn:active {
+    background: #005a99;
+}
+
+.bookBtn:hover {
+    background: #00a80e;
+    color: #ffffff;
+}
+
+.bookBtn:active {
+    background: #009919;
+}
+
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modalCard {
+    width: 100%;
+    max-width: 520px;
+    background: white;
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+.inputOverview{
+    margin-bottom: 1vh;
+}
+.inputOverview em{
+    text-decoration: underline;
+    font-style:unset;
+}
+
+.modalHeader {
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.modalHeader h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #111;
+}
+
+.modalChosenLocation {
+    text-align: center;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    background-color: #005a99;
+    width: 50%;
+    border-radius: 8px;
+}
+
+.modalChosenLocation p {
+    color: #ffffff;
+    margin: 0.5vh;
+}
+
+.modalForm {
+    display: grid;
+    gap: 12px;
+}
+
+.field {
+    display: grid;
+    gap: 6px;
+}
+
+.field label {
+    font-size: 14px;
+    color: #222;
+}
+
+.field input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    border: 1px solid #cfcfcf;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.field input:focus {
+    border-color: #111;
+}
+
+.grid2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.modalActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+.btnGhost,
+.btnPrimary {
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btnGhost {
+    background: #e43838;
+    color: #ffffff;
+}
+
+.btnPrimary {
+    background: #0fa123;
+    color: #ffffff;
+    border-color: #1c923a;
+}
+

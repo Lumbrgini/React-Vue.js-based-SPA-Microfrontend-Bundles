@@ -1,9 +1,17 @@
 <template>
-  <p>Это MF2 из Vue Microfrontend :DDDDDDDD</p>
+  <div class="mf-2">
+    <eventCardList />
+  </div>
 </template>
 
 <script>
-export default {
-  name: "MF2",
-};
+  import eventCardList from './components/eventCardList/eventCardList.vue';
+  import "./global-styles/App.css";
+
+  export default {
+    name: "MF2",
+    components: {
+      eventCardList,
+    }
+  };
 </script>

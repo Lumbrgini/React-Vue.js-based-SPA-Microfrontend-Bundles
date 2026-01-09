@@ -4,7 +4,7 @@
 </template>
 <script>
     import { useRoute } from "vue-router";
-    import { watchEffect,computed } from "vue";
+    import { computed } from "vue";
     import themeSwitcher from '../../../../vue_spa/components/themeProvider/themeSwitcher.vue';
     import switchLangBtn from '../../../../vue_spa/components/switchLangBtn/switchLangBtn.vue';
 
@@ -15,9 +15,6 @@
             const route = useRoute();
 
             const pathname = computed(() => route.path)
-            watchEffect(() => {
-                console.log(pathname.value);
-            })
             const shouldHide = computed(() => hideOn.includes(pathname.value));
             return { shouldHide };
         }, 

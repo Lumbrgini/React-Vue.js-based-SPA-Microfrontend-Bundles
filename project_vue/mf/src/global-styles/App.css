@@ -1,0 +1,25 @@
+.creator {
+    position: fixed;
+    color: rgb(0, 0, 0);
+    bottom: 20px;
+    left:40%;
+    right: 40%;
+    z-index: 100;
+    opacity: 0.6;
+    transition: 0.2s ease-out;
+}
+
+.creator:hover{
+    transition: 0.2s ease-in;
+    font-size: 110%;
+}
+
+.mf-1{
+    background-color: #b5e0ff;
+    min-height: 100vh
+}
+
+.mf-2{
+    background-color: #ffe678;
+    min-height: 100vh
+}

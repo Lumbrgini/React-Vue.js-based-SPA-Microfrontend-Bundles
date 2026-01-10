@@ -2,6 +2,9 @@
   <div class="mf-2">
     <eventCardList />
     <embMW />
+    <p className="creator">
+        <strong>Powered by LustFänger.at</strong>
+    </p>
   </div>
 </template>
 

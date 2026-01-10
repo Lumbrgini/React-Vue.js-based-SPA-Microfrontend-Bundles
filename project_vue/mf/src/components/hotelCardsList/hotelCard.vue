@@ -1,4 +1,5 @@
 <template>
+    <div>
     <article class="hotelCard">
         <div class="hotelCard_imageWrapper">
             <img :src=image alt="Hotel image"></img>
@@ -14,15 +15,13 @@
             <button @click="onAddFavorite" class="addFavBtn">
                 {{isFavorite? 'Remove from ': 'Add to '}} Favorites
             </button>
-            <button class="bookBtn">Book this option</button>
-            
+            <button class="bookBtn" @click="onBook">Book this option</button>
         </div>
     </article>
-
+    </div>
 </template>
 <script setup>
     import "./hotelCard.css";
-    const today = new Date().toISOString().slice(0,10);
 
     const props = defineProps({
         id: [String, Number],
@@ -34,9 +33,17 @@
         isFavorite: Boolean
     })
 
-    const emit = defineEmits(['add-favorite'])
+    const emit = defineEmits(['add-favorite', 'book'])
 
     function onAddFavorite(){
         emit('add-favorite', props.location);
     }
+
+    function onBook(){
+        emit('book', {
+            name: props.name,
+            location: props.location
+        })
+    }
+
 </script>

@@ -11,7 +11,7 @@ export default function App2() {
       <p className="creator">
         <strong>Powered by LustFänger.at</strong>
       </p>
-      </div>
+    </div>
   );  
 }
 

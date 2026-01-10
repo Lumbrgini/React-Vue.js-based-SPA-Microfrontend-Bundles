@@ -1,6 +1,9 @@
 <template>
   <div class="mf-1">
     <hotelCardsList />
+    <p className="creator">
+        <strong>Powered by Wohnungsfeier.at</strong>
+    </p>
   </div>
 </template>
 

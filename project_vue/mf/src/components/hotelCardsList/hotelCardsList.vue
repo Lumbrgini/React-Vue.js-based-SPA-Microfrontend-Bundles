@@ -1,29 +1,44 @@
 <template>
-  <div class="hotelCardList">
-    <hotelCard
-      v-for="hotel in hotels"
-      :key="hotel.id"
-      :name="hotel.name"
-      :image="hotel.image"
-      :location="hotel.location"
-      :price="hotel.price"
-      :rating="hotel.rating"
-      :is-favorite="favorites.includes(hotel.location)"
+    <div>
+        <div class="hotelCardList">
+            <hotelCard
+            v-for="hotel in hotels"
+            :key="hotel.id"
+            :name="hotel.name"
+            :image="hotel.image"
+            :location="hotel.location"
+            :price="hotel.price"
+            :rating="hotel.rating"
+            :is-favorite="favorites.includes(hotel.location)"
+            @add-favorite="handleAddToFavourites"
+            @book="openBooking(hotel)"
+            />
+        </div>
 
-      @add-favorite="handleAddToFavourites"
-    />
-  </div>
+        <modalRequestForm
+            v-model="form"
+            v-model:open="isModalOpen"
+            :hotel="selectedHotel"
+            @submitted="onSubmitted"
+        />
+        <Toast :open="toast.open" :message="toast.message" />
+    </div>
 </template>
+
 <script setup>
     import { ref } from "vue";
+    import hotelCard from "./hotelCard.vue";
+    import "./hotelCardList.css";
+    import modalRequestForm from "../ModalRequestForm/modalRequestForm.vue";
+    import Toast from "../toastComponent/Toast.vue";
+    import { useToast } from "../toastComponent/refToast.mjs";
+
     import inns from "../../pictures/inns.jpg";
     import falken from "../../pictures/falken.jpg";
     import worldhotel from "../../pictures/worldhotel.jpg";
     import boutique from "../../pictures/boutique.jpg";
     import seehotel from "../../pictures/seehotel.jpg";
     import parkhotel from "../../pictures/parkhotel.jpg";
-    import hotelCard from "./hotelCard.vue";
-    import "./hotelCardList.css";
 
     const hotels = [
         {
@@ -108,5 +123,28 @@
             .map(hotel => hotel.id);
 
         localStorage.setItem("IDs", JSON.stringify(ids));
+    }
+
+    const form = ref({
+        name: "",
+        famName: "",
+        nationality: "",
+        arrDate: "",
+        depDate: "",
+        email: "",
+    });
+
+    const isModalOpen = ref(false)
+    const selectedHotel = ref(null)
+
+    function openBooking(hotel) {
+        selectedHotel.value = hotel
+        isModalOpen.value = true
+    }
+
+    const { toast, showToast } = useToast(3500);
+
+    function onSubmitted() {
+        showToast("Your request has been successfully sent!");
     }
 </script>

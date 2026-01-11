@@ -1,5 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { HotelCard } from "./hotelCard";
+import { useToast } from "../toastComponent/useToast";
+import Toast from "../toastComponent/Toast";
 import "./hotelCardList.css"
 import inns from "../../pictures/inns.jpg";
 import falken from "../../pictures/falken.jpg";
@@ -7,6 +9,7 @@ import worldhotel from "../../pictures/worldhotel.jpg";
 import boutique from "../../pictures/boutique.jpg";
 import seehotel from "../../pictures/seehotel.jpg";
 import parkhotel from "../../pictures/parkhotel.jpg";
+import ModalRequestForm from "../ModalRequestForm/modalRequestForm";
 
 const hotels = [
     {
@@ -62,7 +65,7 @@ const hotels = [
 
 export function HotelCardList(){
     
-    const [eventLocation, setEventLocation] = useState([])
+    const {toast, showToast} = useToast(3500);
     const [favorites, setFavorites] = useState(() =>{
         const stored = localStorage.getItem("Hotels");
         try{
@@ -71,7 +74,33 @@ export function HotelCardList(){
             return [];
         }
     });
-    
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedHotel, setSelectedHotel] = useState(null);
+    const [form, setForm] = useState({
+        name: "",
+        famName: "",
+        nationality: "",
+        arrDate: "",
+        depDate: "",
+        email: "",
+    });
+
+    const openBooking = (hotel) => {
+        setSelectedHotel(hotel);
+        setIsModalOpen(true);
+    }
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+        setForm("");
+    }
+
+    const handleSubmitted = () => {
+        showToast("Your request have been successfully sent!");
+        closeModal();
+    }
+
     
     const handleAddToFavorites = (location) => {
         setFavorites(prev => {
@@ -89,8 +118,6 @@ export function HotelCardList(){
                 .filter(hotel => updatedFav.includes(hotel.location))
                 .flatMap(hotel => hotel.id || []);
 
-            //setEventLocation(events);
-
             localStorage.setItem("IDs", JSON.stringify(ids));
 
             return updatedFav;
@@ -98,6 +125,7 @@ export function HotelCardList(){
     };
 
     return (
+        <>
         <div className="hotelCardList">
             {hotels.map((hotel) => (
                 <HotelCard
@@ -109,8 +137,22 @@ export function HotelCardList(){
                 rating={hotel.rating}
                 isFavorite={favorites.includes(hotel.location)}
                 onAddFavorite={handleAddToFavorites} 
+                onBook={() => openBooking(hotel)}
                 />
             ))}
         </div>
+
+        <ModalRequestForm
+            open = {isModalOpen}
+            hotel = {selectedHotel}
+            form = {form}
+            setForm = {setForm}
+            onClose = {closeModal}
+            onSubmitted = {handleSubmitted}
+        >
+        </ModalRequestForm>
+
+        <Toast open={toast.open} message={toast.message} />
+        </>
     );
 }

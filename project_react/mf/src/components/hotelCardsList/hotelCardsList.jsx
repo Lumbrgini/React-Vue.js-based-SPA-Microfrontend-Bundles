@@ -93,12 +93,19 @@ export function HotelCardList(){
 
     const closeModal = () => {
         setIsModalOpen(false);
-        setForm("");
+        setSelectedHotel(null);
+        setForm({
+            name: "",
+            famName: "",
+            nationality: "",
+            arrDate: "",
+            depDate: "",
+            email: "",
+        });
     }
 
     const handleSubmitted = () => {
         showToast("Your request have been successfully sent!");
-        closeModal();
     }
 
     

@@ -5,18 +5,16 @@ const isDev = process.env.NODE_ENV === "development";
 
 /** @type {import('@rspack/core').RspackOptions} */
 module.exports = defineConfig({
-  entry: "./src/index.jsx", // можно оставить .js, но см. parser.jsx ниже
+  entry: "./src/index.jsx", 
   devServer: {
     port: 3000,
     historyApiFallback: true,
   },
   resolve: {
-    // важно: чтобы можно было импортировать .jsx/.js без явного расширения
     extensions: ["...", ".js", ".jsx", ".ts", ".tsx"],
   },
   module: {
     rules: [
-      // CSS (чтобы import './index.css' работал)
      {
         test: /\.module\.css$/,
         use: [
@@ -36,7 +34,6 @@ module.exports = defineConfig({
         exclude: /\.module\.css$/,
         use: ['style-loader', 'css-loader']
       },
-      // JS/TS + JSX/TSX через встроенный swc
       {
         test: /\.(js|jsx|ts|tsx)$/,
         use: [
@@ -45,16 +42,15 @@ module.exports = defineConfig({
             options: {
               jsc: {
                 parser: {
-                  // если у тебя чистый JS/JSX — можно поставить syntax: "ecmascript"
-                  syntax: "typescript",
+                  syntax: "ecmascript",
                   tsx: true,
-                  jsx: true, // ← это ключевая строчка для JSX
+                  jsx: true, 
                 },
                 transform: {
                   react: {
                     runtime: "automatic",
                     development: isDev,
-                    refresh: false, // или подключи @rspack/plugin-react-refresh
+                    refresh: false, 
                   },
                 },
               },

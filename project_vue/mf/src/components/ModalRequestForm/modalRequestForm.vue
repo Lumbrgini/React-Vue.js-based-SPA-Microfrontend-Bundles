@@ -29,7 +29,7 @@
 
 				<form class="modalForm" @submit.prevent="handleSubmit">
 					<div class="field">
-						<label htmlFor="name">Name</label>
+						<label for="name">Name</label>
 						<input 
 							id="name" 
 							v-model="form.name" 
@@ -37,7 +37,7 @@
 					</div>
 
 					<div class="field">
-						<label htmlFor="famName">Family Name</label>
+						<label for="famName">Family Name</label>
 						<input 
 							id="famName" 
 							v-model="form.famName" 
@@ -45,7 +45,7 @@
 					</div>
 
 					<div class="field">
-						<label htmlFor="email">E-Mail</label>
+						<label for="email">E-Mail</label>
 						<input 
 							type="email" 
 							id="email" 
@@ -55,7 +55,7 @@
 					</div>
 
 					<div class="field">
-						<label htmlFor="nationality">Country</label>
+						<label for="nationality">Country</label>
 						<input 
 							id="nationality" 
 							v-model="form.nationality" 
@@ -64,7 +64,7 @@
 
 					<div class="grid2">
 						<div class="field">
-							<label htmlFor="start">Arrival date</label>
+							<label for="start">Arrival date</label>
 							<input 
 								type="date" 
 								id="start" 
@@ -73,12 +73,12 @@
 							/>
 						</div>
 						<div class="field">
-							<label htmlFor="end">Departure date</label>
+							<label for="end">Departure date</label>
 							<input 
 								type="date" 
 								id="end"
 								max="2026-12-31"
-								:min="form.arrDate"
+								:min="form.arrDate || today"
 								v-model="form.depDate" 
 							/>
 						</div>
@@ -88,7 +88,7 @@
 						<button 
 							class="btnGhost" 
 							type="button" 
-							@click="handleCancel">
+							@click="emit('update:open', false)">
 						Cancel
 						</button>
 
@@ -118,25 +118,8 @@ const emit = defineEmits(["update:open", "submitted"]);
 
 const today = new Date().toISOString().slice(0, 10);
 
-function resetForm() {
-	form.value = {
-		name: "",
-		famName: "",
-		nationality: "",
-		arrDate: "",
-		depDate: "",
-		email: "",
-  	}
-}
-
-function handleCancel() {
-  	emit("update:open", false);
-  	resetForm();
-}
-
 function handleSubmit() {
-	emit("submitted", { ...form, hotel: props.hotel })
+	emit("submitted", { ...form.value, hotel: props.hotel })
   	emit("update:open", false);
-  	resetForm();
 }
 </script>

@@ -139,7 +139,7 @@
         const matchingEvents = events 
             .filter(event => ids.includes(event.city));
         
-        showEvents = matchingEvents;
+        showEvents.value = matchingEvents;
     })
 
 </script>

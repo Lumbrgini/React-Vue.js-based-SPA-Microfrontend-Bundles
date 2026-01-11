@@ -8,15 +8,6 @@ export default function ModalRequestForm({open, hotel, form, setForm, onClose, o
 
     const today = new Date().toISOString().slice(0, 10);
 
-    const [form, setForm] = useState({
-        name: "",
-        famName: "",
-        nationality: "",
-        arrDate: "",
-        depDate: "",
-        email: "",
-    });
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         setForm((prev) => ({ ...prev, [name]: value }));
@@ -27,7 +18,7 @@ export default function ModalRequestForm({open, hotel, form, setForm, onClose, o
         if(!e.currentTarget.reportValidity()) return;
 
         onSubmitted({...form, hotel});
-        setForm("");
+        onClose();
     }
 
     return (

@@ -1,7 +1,5 @@
 import React from "react";
 import "./hotelCard.css";
-import { useToast } from "../toastComponent/useToast";
-import Toast from "../toastComponent/Toast";
 
 export function HotelCard({name, image, location, price, rating, isFavorite, onAddFavorite, onBook}) {
     return (

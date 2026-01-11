@@ -27,7 +27,7 @@ module.exports = defineConfig({
       "Access-Control-Allow-Origin": "http://localhost:4174",
       "Access-Control-Allow-Methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
       "Access-Control-Allow-Headers": "Content-Type, Authorization",
-      historyApiFallback: true
+    
     },
   },
 

@@ -20,6 +20,7 @@
             v-model:open="isModalOpen"
             :hotel="selectedHotel"
             @submitted="onSubmitted"
+            @update:open="onOpenChanged"
         />
         <Toast :open="toast.open" :message="toast.message" />
     </div>
@@ -134,6 +135,17 @@
         email: "",
     });
 
+    function resetForm() {
+	    form.value = {
+            name: "",
+            famName: "",
+            nationality: "",
+            arrDate: "",
+            depDate: "",
+            email: "",
+  	    }
+    }
+
     const isModalOpen = ref(false)
     const selectedHotel = ref(null)
 
@@ -146,5 +158,11 @@
 
     function onSubmitted() {
         showToast("Your request has been successfully sent!");
+        selectedHotel.value = null
+    }
+
+    function onOpenChanged(val){
+        if(val === false) resetForm();
+        selectedHotel.value = null
     }
 </script>

@@ -4,7 +4,6 @@ import Contact from './pages/Contact';
 
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link, useLocation } from 'react-router-dom';
-import { RequestForm } from '../../mf/src/components/requestBookingForm/requestForm';
 import { ButtonsHider } from '../../mf/src/components/ButtonsHider/ButtonsHider';
 
 const MF1 = React.lazy(() => import("mfe/App"));

@@ -1,4 +1,3 @@
-// vue-spa/rspack.config.cjs
 const path = require("path");
 const { defineConfig } = require("@rspack/cli");
 const rspack = require("@rspack/core");

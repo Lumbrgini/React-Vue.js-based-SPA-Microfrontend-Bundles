@@ -1,10 +1,6 @@
-import React, {useState} from "react";
-import {useNavigate} from "react-router";
 import "./eventCard.css";
 
 export function EventCard({name, image, date, location, price}) {
-
-    //const navigate = useNavigate();
     
     return (
         <article className="eventCard">

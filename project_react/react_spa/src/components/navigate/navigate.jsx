@@ -1,7 +1,6 @@
-import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-export function mfNavigate({route}){
+export function MfNavigate({route}){
     const navigate = useNavigate();
     navigate(route);
 

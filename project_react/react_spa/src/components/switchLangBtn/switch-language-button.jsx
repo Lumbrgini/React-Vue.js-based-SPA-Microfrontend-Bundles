@@ -15,10 +15,9 @@ export function SwitchLanguageButton() {
         i18n.changeLanguage(newLang);
     }
 
-    
     return(
         <button onClick={toggleLang} className="switchBtn">
-            {language == 'de'? 'EN': 'DE'}
+            {language === 'de'? 'EN': 'DE'}
         </button>
     );
 };

@@ -1,5 +1,4 @@
 import { HotelCardList } from "./components/hotelCardsList/hotelCardsList";
-import { Routes, Route } from "react-router-dom";
 import "./global-styles/App.css";
 
 export default function App() {

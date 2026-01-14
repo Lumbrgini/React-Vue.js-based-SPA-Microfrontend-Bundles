@@ -1,4 +1,3 @@
-import { EventCard } from "./components/eventCardList/eventCard";
 import { EventsCardList } from "./components/eventCardList/eventCardList";
 import ModalSetter from "./components/modalWindow/embMW";
 import "./global-styles/App.css";

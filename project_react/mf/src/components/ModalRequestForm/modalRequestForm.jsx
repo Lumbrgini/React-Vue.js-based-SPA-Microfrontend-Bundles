@@ -1,6 +1,4 @@
 import ModalWindow from "../modalWindow/modalWindow";
-import { useState } from "react";
-
 
 export default function ModalRequestForm({open, hotel, form, setForm, onClose, onSubmitted}){
 

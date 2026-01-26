@@ -4,6 +4,8 @@ import Contact from './pages/Contact';
 
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+
+// Das ist eine Elternkompomponente für den Sprachwechsel-Schalter und Theme-Schalter
 import { ButtonsHider } from '../../mf/src/components/ButtonsHider/ButtonsHider';
 
 const MF1 = React.lazy(() => import("mfe/App"));
@@ -26,15 +28,13 @@ function App() {
         </div>
       </nav>
       <div className='main-text'>
-        <React.Suspense fallback={<div>Loading…</div>}>
-          <Routes>
-            <Route path="/" element={<About/>}/>
-            <Route path="/photos" element={<Photos/>}/>
-            <Route path="/contact" element={<Contact/>}/>
-            <Route path="/mf1/*" element={<MF1/>}/>
-            <Route path="/mf2/*" element={<MF2/>}/>
-          </Routes>
-        </React.Suspense>
+        <Routes>
+          <Route path="/" element={<About/>}/>
+          <Route path="/photos" element={<Photos/>}/>
+          <Route path="/contact" element={<Contact/>}/>
+          <Route path="/mf1/*" element={<MF1/>}/>
+          <Route path="/mf2/*" element={<MF2/>}/>
+        </Routes>
       </div>
     </Router>
   );

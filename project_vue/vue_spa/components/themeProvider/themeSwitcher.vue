@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { useTheme } from './themeContext';
+import { useTheme } from './themeInjection';
 import "./themeSwitcher.css"
 
 export default {

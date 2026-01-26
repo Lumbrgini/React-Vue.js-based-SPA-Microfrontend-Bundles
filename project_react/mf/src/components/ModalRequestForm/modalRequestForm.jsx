@@ -14,7 +14,6 @@ export default function ModalRequestForm({open, hotel, form, setForm, onClose, o
     const handleSubmit = (e) => {
         e.preventDefault();
         if(!e.currentTarget.reportValidity()) return;
-
         onSubmitted({...form, hotel});
         onClose();
     }
@@ -47,8 +46,6 @@ export default function ModalRequestForm({open, hotel, form, setForm, onClose, o
                     </div>
                 </div>
             </div>
-            
-
             <form className="modalForm" onSubmit={handleSubmit}>
                 <div className="field">
                     <label htmlFor="name">Name</label>
@@ -59,7 +56,6 @@ export default function ModalRequestForm({open, hotel, form, setForm, onClose, o
                         onChange={handleChange} 
                     />
                 </div>
-
                 <div className="field">
                     <label htmlFor="famName">Family Name</label>
                     <input 
@@ -69,7 +65,6 @@ export default function ModalRequestForm({open, hotel, form, setForm, onClose, o
                         onChange={handleChange} 
                     />
                 </div>
-
                 <div className="field">
                     <label htmlFor="email">E-Mail</label>
                     <input 
@@ -82,7 +77,6 @@ export default function ModalRequestForm({open, hotel, form, setForm, onClose, o
                         required 
                     />
                 </div>
-
                 <div className="field">
                     <label htmlFor="nationality">Country</label>
                     <input 
@@ -92,7 +86,6 @@ export default function ModalRequestForm({open, hotel, form, setForm, onClose, o
                         onChange={handleChange} 
                     />
                 </div>
-
                 <div className="grid2">
                 <div className="field">
                     <label htmlFor="start">Arrival date</label>
@@ -106,7 +99,6 @@ export default function ModalRequestForm({open, hotel, form, setForm, onClose, o
                         onChange={handleChange}
                     />
                 </div>
-
                 <div className="field">
                     <label htmlFor="end">Departure date</label>
                     <input
@@ -120,7 +112,6 @@ export default function ModalRequestForm({open, hotel, form, setForm, onClose, o
                     />
                 </div>
                 </div>
-
                 <div className="modalActions">
                     <button 
                         className="btnGhost" 

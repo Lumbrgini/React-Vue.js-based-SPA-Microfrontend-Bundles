@@ -77,6 +77,8 @@ export function HotelCardList(){
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedHotel, setSelectedHotel] = useState(null);
+
+
     const [form, setForm] = useState({
         name: "",
         famName: "",
@@ -85,6 +87,8 @@ export function HotelCardList(){
         depDate: "",
         email: "",
     });
+
+    
 
     const openBooking = (hotel) => {
         setSelectedHotel(hotel);

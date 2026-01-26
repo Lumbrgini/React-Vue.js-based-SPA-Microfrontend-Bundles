@@ -3,7 +3,7 @@
 </template>
 <script>
     import { ref, provide, watchEffect } from "vue";
-    import { ThemeKey } from "./themeContext";
+    import { ThemeKey } from "./themeInjection";
 
     export default {
         setup() {

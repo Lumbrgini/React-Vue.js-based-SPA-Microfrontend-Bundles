@@ -1,3 +1,5 @@
+const isDev = process.env.NODE_ENV === "development";
+
 module.exports = {
   name: "mfe",
   filename: "remoteEntry.js",
@@ -6,7 +8,7 @@ module.exports = {
     "./App2": "./src/App2.jsx",  
   },
   shared: {
-    react: { singleton: true },
-    "react-dom": { singleton: true },
-  },
+  react: { singleton: true, eager: isDev, requiredVersion: false },
+  "react-dom": { singleton: true, eager: isDev, requiredVersion: false },
+}
 };

@@ -3,6 +3,7 @@ import Photos from './pages/Photos';
 import Contact from './pages/Contact';
 
 import React from 'react';
+import { Suspense } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
 // Das ist eine Elternkompomponente für den Sprachwechsel-Schalter und Theme-Schalter
@@ -32,8 +33,8 @@ function App() {
           <Route path="/" element={<About/>}/>
           <Route path="/photos" element={<Photos/>}/>
           <Route path="/contact" element={<Contact/>}/>
-          <Route path="/mf1/*" element={<MF1/>}/>
-          <Route path="/mf2/*" element={<MF2/>}/>
+          <Route path="/mf1/*" element={<Suspense fallback={<div>Loading...</div>}> <MF1/></Suspense>}/>
+          <Route path="/mf2/*" element={<Suspense fallback={<div>Loading...</div>}> <MF2/></Suspense>}/>
         </Routes>
       </div>
     </Router>

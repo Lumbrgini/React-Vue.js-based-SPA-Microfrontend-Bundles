@@ -1,15 +1,18 @@
 import { createWebHistory, createRouter } from 'vue-router'
+import { defineAsyncComponent } from "vue";
 
 const About = () => import('./pages/About.vue')
 const Photos = () => import('./pages/Photos.vue')
 const Contact = () => import('./pages/Contact.vue')
 
 
-const MF1 = () =>
-import("vue_mfe/MF1").then(m => m.default || m);
+const MF1 = defineAsyncComponent(() =>
+  import("vue_mfe/MF1").then((m) => m.default)
+);
 
-const MF2 = () =>
-import("vue_mfe/MF2").then(m => m.default || m);
+const MF2 = defineAsyncComponent(() =>
+  import("vue_mfe/MF2").then((m) => m.default)
+);
 
 const routes = [
     { path: '/', component: About },

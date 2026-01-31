@@ -1,28 +1,26 @@
 const path = require("path");
 const { defineConfig } = require("@rspack/cli");
 const rspack = require("@rspack/core");
-const { VueLoaderPlugin } = require("vue-loader");
 const { ModuleFederationPlugin } = require("@module-federation/enhanced/rspack");
-const moduleFederationConfig = require("./module-federation.config.js");
 
 const isProd = process.env.NODE_ENV === "production";
 
 module.exports = defineConfig({
-  entry: { main: "./src/main.js" },
+  entry: { main: "./src/index.jsx" },
 
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "main.js",
-    publicPath: "http://localhost:4175/",
-    uniqueName: "vue_mfe",
+    publicPath: "http://localhost:3001/",
+    uniqueName: "mfe",
     clean: true
   },
 
   devServer: {
-    port: 4175,
+    port: 3001,
     historyApiFallback: true,
     headers: {
-      "Access-Control-Allow-Origin": "http://localhost:4174",
+      "Access-Control-Allow-Origin": "http://localhost:3000",
       "Access-Control-Allow-Methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
       "Access-Control-Allow-Headers": "Content-Type, Authorization"
     }
@@ -31,23 +29,22 @@ module.exports = defineConfig({
   devtool: isProd ? false : "cheap-module-source-map",
 
   resolve: {
-    extensions: [".js", ".vue", ".json"],
-    alias: { "@": path.resolve(__dirname, "src") }
+    extensions: ["...", ".js", ".jsx", ".ts", ".tsx"]
   },
 
   module: {
     rules: [
       {
-        test: /\.vue$/,
-        loader: "vue-loader",
-        options: { experimentalInlineMatchResource: true }
-      },
-      {
-        test: /\.js$/,
+        test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
         loader: "builtin:swc-loader",
         options: {
-          jsc: { parser: { syntax: "ecmascript" } }
+          jsc: {
+            parser: { syntax: "ecmascript", jsx: true, tsx: true },
+            transform: {
+              react: { runtime: "automatic", development: !isProd, refresh: false }
+            }
+          }
         }
       },
       { test: /\.css$/, type: "css" },
@@ -58,15 +55,21 @@ module.exports = defineConfig({
   experiments: { css: true },
 
   plugins: [
-    new VueLoaderPlugin(),
     new rspack.HtmlRspackPlugin({ template: "./index.html" }),
 
-    new ModuleFederationPlugin(moduleFederationConfig),
-
-    new rspack.DefinePlugin({
-      __VUE_OPTIONS_API__: JSON.stringify(true),
-      __VUE_PROD_DEVTOOLS__: JSON.stringify(false),
-      __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: JSON.stringify(false)
+    new ModuleFederationPlugin({
+      name: "mfe",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./App": "./src/App.jsx",
+        "./App2": "./src/App2.jsx"
+      },
+      shared: {
+        react: { singleton: true, requiredVersion: false },
+        "react-dom": { singleton: true, requiredVersion: false },
+        "react-router-dom": { singleton: true, requiredVersion: false }
+      },
+      dts: false
     })
   ],
 
